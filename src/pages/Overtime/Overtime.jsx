@@ -97,6 +97,7 @@ const Overtime = () => {
 
                 </tbody>
             </table>}
+            {!overtimes &&<p>no oveertime records</p>}
         </div>
     </div>
   )

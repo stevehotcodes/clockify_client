@@ -1,0 +1,78 @@
+.profile-view-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+  
+    
+  
+    .profile-section-1 {
+      text-align: center;
+      margin-bottom: 20px;
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      border:2px solid red;
+      width: 95%;
+  
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+  
+      .profile-info {
+        .name {
+          font-size: 24px;
+          font-weight: bold;
+        }
+  
+        .occupation {
+          font-size: 18px;
+          color: #666;
+        }
+      }
+    }
+  
+    .form-view-container {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+  
+      h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+  
+  
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: scroll;
+  
+        .card-body {
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: scroll;
+  
+            td {
+              padding: 10px;
+              border-bottom: 1px solid #ccc;
+              font-weight: bold;
+              text-transform: capitalize;
+  
+              &:nth-child(odd) {
+                background-color: #f9f9f9;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+  }
+  

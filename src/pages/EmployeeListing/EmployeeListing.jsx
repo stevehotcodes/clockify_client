@@ -4,11 +4,25 @@ import { Link } from 'react-router-dom'
 import { useGetAllEmployeesQuery } from '../../features/EmployeeListing/EmployeeListing'
 import { PuffLoader } from 'react-spinners'
 import { useState } from 'react'
+import { formatDate } from '../Attendance/Attendance'
+import Modal from '../../components/Modal/Modal'
+import ProfileView from '../../components/ProfileView/ProfileView'
 
 const EmployeeListing = () => {
     const{data:employees, isError, isLoading,isFetching}=useGetAllEmployeesQuery()
- 
-   console.log(`data:${employees}, isError:${isError}, isLoading:${isLoading}`)
+    const [selectedPerson,setSelectedPerson]=useState('');
+    const[isViewProfileOpen,setIsViewProfileOpen]=useState(false) 
+   console.log(`data:${employees}, isError:${isError}, isLoading:${isLoading}`);
+
+   const openViewProfileModal=(item)=>{
+         setIsViewProfileOpen(true)
+         setSelectedPerson(item)
+   }
+
+   const closeViewProfileModal=()=>{
+
+    setIsViewProfileOpen(true)
+}
 
 
 
@@ -41,7 +55,7 @@ const EmployeeListing = () => {
                         <th>Position</th>
                         <th>Address</th>
                         <th>Telephone</th>
-                        <th>Employeed on</th>
+                        <th>Date of Birth</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -49,13 +63,21 @@ const EmployeeListing = () => {
                     {employees ? employees.map((item,index)=>(
 
                     <tr key={index}>
-                        <td>1{item.identification_number}</td>
+                        <td>{item.identification_number}</td>
                         <td>{item.firstname}  {item.lastname}</td>
                         <td>{item.position_description}</td>
                         <td>{item.place_of_residence}</td>
                         <td>{item.phone_number}</td>
-                        <td>{item.date_of_birth}</td>
-                        <td>View Edit</td>
+                        <td>{item?formatDate(item.date_of_birth):'dd/mm/yyyy'}</td>
+                        <td><button onClick={()=>openViewProfileModal(item)}>Edit</button>
+                            {
+                                isViewProfileOpen&&<Modal onClose={closeViewProfileModal}>
+                                  <ProfileView/>  
+                                       
+                                </Modal>
+                            }
+                        
+                        </td>
                     </tr>
 
 
