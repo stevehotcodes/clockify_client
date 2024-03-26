@@ -40,6 +40,7 @@ const EmployeeDashboard = () => {
               </div>
             
               <span className='numbers'>{userDetails.schedule_description}</span>
+              <span className='numbers'>{userDetails?'':''}</span>
                   
              </div>
              <div className='dashboard-card'>
@@ -65,7 +66,7 @@ const EmployeeDashboard = () => {
         <div className='graphs'>
 
            <AttendanceChart reportingData={userAttendanceData}/>
-           <LineChartAttendance  attendanceData={userAttendanceData}/>
+           {/* <LineChartAttendance  attendanceData={userAttendanceData}/> */}
            
 
           

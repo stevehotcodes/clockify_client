@@ -21,9 +21,27 @@ export const employeeListingApi=createApi({
                 method:`GET`
             }),
             providesTags:[`Employees`]
+        }),
+        editEmployeesSchedule:builder.mutation({
+            query:(employee)=>({
+                 url:`user/schedule/${employee.user_id}`,
+                 method:`PUT`,
+                 body:employee
+            }),
+            // invalidatesTags:[`Employees`]
+        }),
+        editEmployeePosition:builder.mutation({
+            query:(employee)=>({
+                url:`user/position/${employee.user_id}`,
+                method:`PUT`,
+                body:employee
+            
+            }),
+            // invalidatesTags:[`Employees`]
+
         })
     })
 
 })
 
-export const{useGetAllEmployeesQuery,useGetAllEmployeesByGenderQuery}=employeeListingApi
+export const{useGetAllEmployeesQuery,useGetAllEmployeesByGenderQuery,useEditEmployeesScheduleMutation,useEditEmployeePositionMutation}=employeeListingApi

@@ -1,6 +1,5 @@
 import React from 'react'
 import '../SideNavbarAdmin/SideNavbarAdmin.scss'
-// import { TbLayoutDashboard} from "react-icons/tb";
 import { FaHome } from "react-icons/fa";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaBusinessTime } from "react-icons/fa";
@@ -16,16 +15,9 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 
 
 const SideNavbarAdmin = () => {
-    // const [token , setToken]=useLocalStorage('')
+
     const [token, setToken] = useLocalStorage('token ', null);
 
-
-    const logOut=()=>{
-        // localStorage.removeItem('token')
-        localStorage.removeItem('user')
-        setToken(null)
-
-    }
 
     const sideNavAdminLinks=[
         {
@@ -72,12 +64,6 @@ const SideNavbarAdmin = () => {
             icon: <MdOutlinePayments/>,
             path:'/payroll',
             linkContent:'Payroll'
-        },
-        {
-            icon: <CiLogout/>,
-            path:'/',
-            linkContent:'Log out'
-            
         }
         
         
@@ -95,15 +81,6 @@ const SideNavbarAdmin = () => {
 
   </div>
 
-       {/* <div className='nav-icon-wrapper'>
-          <FaHome/>
-            <span>Home</span>
-        </div> */}
-
-        
-
-        
-<button onClick={logOut}>Log out </button>
          
       
 

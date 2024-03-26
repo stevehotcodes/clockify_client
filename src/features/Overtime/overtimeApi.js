@@ -15,7 +15,7 @@ export const overtimeApi=createApi({
                 method:`POST`,
                 body:overtime
             }),
-            // invalidatesTags:[`Overtime`]
+            invalidatesTags:[`Overtime`]
         }),
         getAllOvertime:builder.query({
             query:()=>({

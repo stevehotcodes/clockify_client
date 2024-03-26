@@ -1,99 +1,98 @@
-.payroll-container{
-    width:100%;
+
+.payroll-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+     width:100%;
     background-color:white;
     padding:1rem;
     display:flex;
     flex-direction: column;
     gap:0.3rem;
-
-
-    .title-bar{
-        display:flex ;
-        align-items: center;
-        padding:5px;
-        border-bottom :2px solid ;
-        span{
-           font-weight:700;
-           font-size:2rem;
-        }
-
+  
+    .title-bar {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
-
-    .content-wrapper{
-        width:100%;
-        min-height:100vh;
+  
+    .content-wrapper {
+      .search-add-new-btn {
         display: flex;
-        flex-direction: column;
-
-        .search-add-new-btn{
-            display: flex;
-            align-items: center;
-            form{
-                flex:0.7;
-                input{
-                    padding:0.7rem;
-                    width:20rem;
-                    border:none;
-                    background-color: #f9f8f8;
-                    border-radius: 10px;
-                    filter: drop-shadow(0 0 0.75rem rgb(206, 203, 203));
-                }
-
-
-            }
-            .button-wrapper{
-                flex:0.2;
-                display: flex;
-                justify-content: flex-end;
-                button{
-                    background-color:rgb(49, 49, 236);
-                    color:white;
-                    padding:0.5rem;
-                }
-
-                button:hover{
-                    background-color: white;
-                    color:rgb(49, 49, 236);
-                    
-                }
-                
-
-            }
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+  
+        .button-wrapper {
+          button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin-right: 10px;
+          }
+  
+          button:hover {
+            background-color: #0056b3;
+          }
         }
-
-        table{
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.9em;
-            min-width: 320px;
-            width:100%;
-            border-radius: 5px 5px 0 0;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-            th{
-                background-color: #01073385;
-                color:white;
-                
-            }
-
-            th, td{
-                padding: 0.7rem 2.2rem;
-            }
-
-            tbody {
-                width:100%;
-                tr{
-                    border-bottom: 1px solid #dddddd;
-                }
-                tr:nth-of-type(even) {
-                    background-color: #f3f3f3;
-                }
-                tr.active-row {
-                    font-weight: bold;
-                    color: #009879;
-                }
-            }
-
+      }
+  
+      table {
+        width: 100%;
+        border-collapse: collapse;
+  
+        th,
+        td {
+          border: 1px solid #ccc;
+          padding: 10px;
+          text-align: left;
         }
+  
+        th {
+        //   background-color: #f2f2f2;
+          font-weight: bold;
+        }
+  
+        td {
+          &:first-child {
+            font-weight: bold;
+          }
+  
+          span {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 5px;
+          }
+        }
+      }
     }
-}
+  
+    .status-loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+  
+      .status-loader-content {
+        text-align: center;
+  
+        p {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  

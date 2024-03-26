@@ -7,11 +7,20 @@ import { useState } from 'react'
 import { formatDate } from '../Attendance/Attendance'
 import Modal from '../../components/Modal/Modal'
 import ProfileView from '../../components/ProfileView/ProfileView'
+import EditEmployee from '../../features/EmployeeListing/EditEmployee'
 
 const EmployeeListing = () => {
     const{data:employees, isError, isLoading,isFetching}=useGetAllEmployeesQuery()
     const [selectedPerson,setSelectedPerson]=useState('');
+    const[selectedPersonToBeEdited,setSelectedPersonToBeEdited]=useState('')
     const[isViewProfileOpen,setIsViewProfileOpen]=useState(false) 
+    const[isEditEmployeeModalOpen,setEditEmployeeModalOpen]=useState(false);
+
+
+
+
+
+
    console.log(`data:${employees}, isError:${isError}, isLoading:${isLoading}`);
 
    const openViewProfileModal=(item)=>{
@@ -21,9 +30,25 @@ const EmployeeListing = () => {
 
    const closeViewProfileModal=()=>{
 
-    setIsViewProfileOpen(true)
+    setIsViewProfileOpen(false)
 }
 
+
+   const  openEditEmployeeModal=(item)=>{
+        setEditEmployeeModalOpen(true)
+        setSelectedPersonToBeEdited(item)
+        // console.log(selectedPersonToBeEdited)
+        
+   }
+
+   const  closeEditEmployeeModal=()=>{
+    setEditEmployeeModalOpen(false)
+
+    
+}
+
+
+console.log("employees", employees)
 
 
 
@@ -69,11 +94,18 @@ const EmployeeListing = () => {
                         <td>{item.place_of_residence}</td>
                         <td>{item.phone_number}</td>
                         <td>{item?formatDate(item.date_of_birth):'dd/mm/yyyy'}</td>
-                        <td><button onClick={()=>openViewProfileModal(item)}>Edit</button>
+
+                        <td><button onClick={()=>openViewProfileModal(item)}>View</button>
                             {
                                 isViewProfileOpen&&<Modal onClose={closeViewProfileModal}>
-                                  <ProfileView/>  
-                                       
+                                  <ProfileView employee={selectedPerson}/>                                         
+                                </Modal>
+                            }
+                            <button  onClick={(e)=>openEditEmployeeModal(item)}>Edit </button>
+                            {
+                                isEditEmployeeModalOpen&&<Modal  onClose={closeEditEmployeeModal}>
+                                    
+                                         <EditEmployee employee={selectedPersonToBeEdited}/>
                                 </Modal>
                             }
                         

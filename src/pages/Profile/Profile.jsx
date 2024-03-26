@@ -8,6 +8,7 @@ import noDp from '../../assets/no_profile_avatar.avif'
 import axios from "axios"
 import { SuccessToast } from '../../components/Toaster/Toaster';
 
+
 const Profile = () => {
     const [userDetails, setUserDetails] = useLocalStorage('user');
     const [isModalOpen,setModalOpen]=useState(false);

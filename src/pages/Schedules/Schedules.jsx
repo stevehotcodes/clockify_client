@@ -4,7 +4,7 @@ import '../Positions/Positions.scss'
 import Modal from '../../components/Modal/Modal';
 import CreateSchedule from '../../features/Schedule/CreateSchedule';
 import { useState } from 'react';
-import { useGetAllSchedulesQuery } from '../../features/Schedule/scheduleApi';
+import { useGetAllSchedulesQuery, useGetEmployeesByScheduleQuery } from '../../features/Schedule/scheduleApi';
 import {PuffLoader} from 'react-spinners'
 
 
@@ -12,8 +12,12 @@ const Schedules = () => {
 
     const [isModalOpen, setModalOpen] = useState(false);
     const [isScheduleModalOpen, setScheduleModalOpen]=useState(false)
+    const [selectedSchedule, setSelectedSchedule]=useState('')
+    
     const {data:schedule, isError, isLoading, isFetching}=useGetAllSchedulesQuery()
-    console.log(`${schedule}, ${isLoading}, ${isError}`)
+    const {data:employeesBySchedules ,isLoading:employeeLoading, isFetching:employeeFetching}=useGetEmployeesByScheduleQuery(selectedSchedule)
+
+    console.log(`${employeesBySchedules}, ${isLoading}, ${isError}`)
 
 
 
@@ -24,6 +28,13 @@ const Schedules = () => {
       const closeModal = () => {
         setScheduleModalOpen(false);
       };
+
+
+    const handleViewEmployeesInThisShift=(selection)=>{
+        setSelectedSchedule(selection);
+        
+        
+    }
 
 
   return (
@@ -70,7 +81,8 @@ const Schedules = () => {
                           <tr key={index}> 
                           <td>{item?`${formatDate(item.in_time)}h` :'-'}-{item?`${formatDate(item.out_time)}h`:'-'}</td>
                           <td>{item.schedule_description}</td>
-                          <td><button>Edit</button></td>
+                          <td><button>Edit</button><button  onClick={()=>handleViewEmployeesInThisShift(item)}> View Employees in this Shift</button></td>
+                          
                       </tr>
 
                     ))}
@@ -82,6 +94,35 @@ const Schedules = () => {
                    
                 </tbody>
             </table>}
+            <th>Employees in {selectedSchedule.schedule_description}</th>
+            <table>
+                {/* <h5>Employees in {selectedSchedule.schedule_description}</h5> */}
+                <thead>
+                    <tr>
+                        <th>Schedules</th>
+                        <th>Title</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                {(employeeFetching)? (<div className="status-loader">
+            <div className='status-loader-content'>
+               <PuffLoader loading={true} size={150} />
+                <p>Please wait .........</p>
+             </div>
+           </div>):
+                (!employeeFetching&&employeesBySchedules)?employeesBySchedules.map((item, index)=>(
+                          <tr key={index}> 
+                          <td>{item.firstname}</td>
+                          <td>{item.schedule_id}</td>
+                          <td><button>Edit</button><button  onClick={()=>handleViewEmployeesInThisShift(item)}> View Employees in this Shift</button></td>
+                          
+                      </tr>
+
+                    )):<h3>No records</h3>}
+                </tbody>
+            </table>
 
         </div>
 

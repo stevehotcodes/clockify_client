@@ -30,10 +30,10 @@ const Attendance = () => {
                 </div>
                 <div className='search-add-new-btn'>
                 <form action="">
-                        {/* <input type="search" name="" id="" placeholder='search for an position' /> */}
+       
                 </form>
                 <div  className='button-wrapper'>
-                        {/* <button className='add-new-btn'> Add New</button> */}
+                  
                 </div>
             
                
@@ -53,7 +53,7 @@ const Attendance = () => {
                         <th>Time in</th>
                         <th>Time Out</th>
                         <th>No of hours worked</th>
-                        {/* <th>Actions</th> */}
+                       
                     </tr>
                 </thead>
                 <tbody>
@@ -65,7 +65,7 @@ const Attendance = () => {
                      <td>{record.time_in ?formatDate(record.time_in):'-'}</td>
                      <td>{record.time_out ? formatDate(record.time_out):'-'}</td>
                      <td>{(calculateTheNumberofHourWorked(record.time_in,record.time_out)).toFixed(4)}</td>
-                     {/* <td>View Edit</td> */}
+                  
                  </tr>
 
 

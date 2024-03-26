@@ -73,7 +73,7 @@ const Positions = () => {
                 <thead>
                     <tr>
                         <th>Description</th>
-                        <th>Rate</th>
+                        <th>Gross Salary in Kshs.</th>
                         <th>Actions</th>
                     </tr>
                 </thead>

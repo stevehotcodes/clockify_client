@@ -4,16 +4,18 @@ import logo from '../../assets/Clockify-logo.png'
 
 
 
-const ProfileView = () => {
+const ProfileView = ({employee}) => {
+  
+    console.log(employee)
   return (
     <div className='profile-view-container'>
 
         <div className='profile-section-1'>
             <img src="" alt="profile pic" />
              <span>
-                Ondieki Stephen Omondi
+                {employee.firstname} {employee.lastname}
              </span>
-             <span>Junior Software</span>
+             <span>{employee.position_description}</span>
              
         </div>
         <div className='form-view-container'>
@@ -27,35 +29,40 @@ const ProfileView = () => {
                 <table>
                     <tbody>
                         <tr>
-                            <td>Name</td>
+                            <td>Full Name</td>
                             <td>:</td>
-                            <td>Stephen Ondieki</td>
+                            <td>{employee.firstname} {employee.middlename} {employee.lastname}</td>
 
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td>:</td>
-                            <td>ondiekistephen00@gmail.com</td>
+                            <td>{employee.email}</td>
                         </tr>
                         <tr>
                             <td>Place of Residence</td>
                             <td>:</td>
-                            <td>Molo</td>
+                            <td>{employee.place_of_residence}</td>
                         </tr>
                         <tr>
                             <td>Marital Status</td>
                             <td>:</td>
-                            <td>Single</td>
+                            <td>{employee.marital_status}</td>
                         </tr>
                         <tr>
                             <td>Job designation</td>
                             <td>:</td>
-                            <td>Web Developer</td>
+                            <td>{employee.position_description}</td>
                         </tr>
                         <tr>
                             <td>Phone number</td>
                             <td>:</td>
-                            <td>+254704453499</td>
+                            <td>{employee.phone_number}</td>
+                        </tr>
+                        <tr>
+                            <td>Schedule</td>
+                            <td>:</td>
+                            <td>{employee.schedule_description}</td>
                         </tr>
                         
                         

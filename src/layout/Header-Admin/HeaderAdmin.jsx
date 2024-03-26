@@ -6,6 +6,10 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { CiLogin } from "react-icons/ci";
+import { FaArrowRightFromBracket } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -13,6 +17,19 @@ const HeaderAdmin = ({Dashboard}) => {
 
   const [userDetails, setUserDetails]=useLocalStorage('user')
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [token, setToken] = useLocalStorage('token ', null);
+  const navigate=useNavigate()
+
+  const logOut = () => {
+    const confirmed = window.confirm("Do you wish to logout?");
+
+    if (confirmed) {
+        localStorage.removeItem('user');
+        setToken(null);
+        navigate('/'); 
+    }
+}
+
 
   useEffect(() => {
   
@@ -41,13 +58,14 @@ const formattedTime = currentTime.toLocaleTimeString([], { hour12: true });
       </div>
 
       <div className='actions'>
-          {/* <img src="" alt="search icon" />
-           */}
+         
            <FaSearch/>
            <IoIosNotificationsOutline/>
           
           
           <p className='logged-in-user'>{userDetails.firstname} {userDetails.lastname}</p>
+          <button onClick={logOut}>Log out </button>
+        
 
       </div>
     

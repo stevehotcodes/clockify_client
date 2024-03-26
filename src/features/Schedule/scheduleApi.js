@@ -25,6 +25,13 @@ export const scheduleApi=createApi({
                 }),
                 providesTags:[`Schedules`]
 
+            }),
+            getEmployeesBySchedule:builder.query({
+                query:(schedule)=>({
+                    url:`schedule/${schedule.schedule_id}`,
+                    method:`GET`
+                }),
+                providesTags:[`Schedules`]
             })
 
 
@@ -35,4 +42,4 @@ export const scheduleApi=createApi({
 
 })
 
-export const {useCreateNewScheduleMutation,useGetAllSchedulesQuery}=scheduleApi
+export const {useCreateNewScheduleMutation,useGetAllSchedulesQuery,useGetEmployeesByScheduleQuery}=scheduleApi

@@ -1,105 +1,216 @@
-.profile-container{
-    width:100%;
-    background-color:white;
-    // border:2px solid red;
-    padding:1rem;
-    display:flex;
-    flex-direction: column;
-    gap:0.3rem;
+// .profile-container{
+//     width:100%;
+//     background-color:white;
+//     // border:2px solid red;
+//     padding:1rem;
+//     display:flex;
+//     flex-direction: column;
+//     gap:0.3rem;
 
-    .title-bar{
-        display:flex ;
-        align-items: center;
-        justify-content: space-between;
-        padding:5px;
-        border-bottom :2px solid ;
+//     .title-bar{
+//         display:flex ;
+//         align-items: center;
+//         justify-content: space-between;
+//         padding:5px;
+//         border-bottom :2px solid ;
 
-        span{
-           font-weight:700;
-           font-size:2rem;
-        }
-        button{
-            background-color: #001529;
-            color: white;
-        }
-    }
+//         span{
+//            font-weight:700;
+//            font-size:2rem;
+//         }
+//         button{
+//             background-color: #001529;
+//             color: white;
+//         }
+//     }
 
-    .content-wrapper{
-        width:100%;
-        min-height:100vh;
-        // border:red 3px solid;
-        display: flex;
-        flex-direction: column;
+//     .content-wrapper{
+//         width:100%;
+//         min-height:100vh;
+//         // border:red 3px solid;
+//         display: flex;
+//         flex-direction: column;
         
         
-        .profile-section-one{
-            // border:2px solid red;
+//         .profile-section-one{
+//             // border:2px solid red;
        
-            display:flex;
-            justify-content: space-around;
-            align-items: center;
-            // background-image: url(../../assets/login_background_image.avif);
-            background:black;
-            background-color: rgba(0,0,0,0.1);
-            // z-index:99;
+//             display:flex;
+//             justify-content: space-around;
+//             align-items: center;
+//             // background-image: url(../../assets/login_background_image.avif);
+//             background:black;
+//             background-color: rgba(0,0,0,0.1);
+//             // z-index:99;
 
-            img{
-                border-radius:50%;
-                width:10rem;
-                height:10rem;
-                border: 2px solid rgb(170, 166, 166);
-                // z-index:999
+//             img{
+//                 border-radius:50%;
+//                 width:10rem;
+//                 height:10rem;
+//                 border: 2px solid rgb(170, 166, 166);
+//                 // z-index:999
 
-            }
-            button{
-                height:4rem;
-            }
-        }
-        .profile-section-two{
-            .basic-info{
+//             }
+//             button{
+//                 height:4rem;
+//             }
+//         }
+//         .profile-section-two{
+//             .basic-info{
 
-                    .label-input-wrapper{
-                        width:100%;
-                        // border:2px solid red;
-                        display: flex;
-                        justify-content: center;
+//                     .label-input-wrapper{
+//                         width:100%;
+//                         // border:2px solid red;
+//                         display: flex;
+//                         justify-content: center;
         
-                        .label-input-group {
-                            width: 70%;
-                            margin: 0.2rem;
-                            display: flex;
-                            flex-direction: column;
-                            label {
-                                font-weight: 700;
-                              }
-                              input {
-                                width: 90%;
-                                padding: 20px 15px;
-                                border:none;
-                                font-size: 1.5rem;
-                                background-color: #f9f8f8;
-                                border-radius: 10px;
-                                outline:none;
+//                         .label-input-group {
+//                             width: 70%;
+//                             margin: 0.2rem;
+//                             display: flex;
+//                             flex-direction: column;
+//                             label {
+//                                 font-weight: 700;
+//                               }
+//                               input {
+//                                 width: 90%;
+//                                 padding: 20px 15px;
+//                                 border:none;
+//                                 font-size: 1.5rem;
+//                                 background-color: #f9f8f8;
+//                                 border-radius: 10px;
+//                                 outline:none;
                             
-                                filter: drop-shadow(0 0 0.75rem rgb(206, 203, 203));
-                              }
-                              .error-message{
-                                color:red;
-                                font-size:0.8rem
-                              }
+//                                 filter: drop-shadow(0 0 0.75rem rgb(206, 203, 203));
+//                               }
+//                               .error-message{
+//                                 color:red;
+//                                 font-size:0.8rem
+//                               }
                              
             
                              
-                          }
+//                           }
         
                           
         
                           
-                    }
+//                     }
                 
-            }
-        }
+//             }
+//         }
         
        
+//     }
+// }
+
+
+
+
+
+
+/* Profile.scss */
+
+.profile-container {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .title-bar {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px 5px 0 0;
+
+        span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 10px;
+
+            &:hover {
+                background-color: #218838;
+            }
+        }
+    }
+
+    .content-wrapper {
+        display: flex;
+        justify-content: space-between;
+
+        .profile-section-one {
+            .profile-img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .upload-image-btn {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 3px;
+                cursor: pointer;
+                margin-top: 10px;
+
+                &:hover {
+                    background-color: #0056b3;
+                }
+            }
+
+            input[type="file"] {
+                display: none;
+            }
+        }
+
+        .profile-section-two {
+            .basic-info {
+                .label-input-wrapper {
+                    display: flex;
+                    margin-bottom: 10px;
+
+                    .label-input-group {
+                        flex: 1;
+                        margin-right: 20px;
+
+                        label {
+                            font-weight: bold;
+                            margin-bottom: 5px;
+                            display: block;
+                        }
+
+                        input[type="text"], input[type="password"], input[type="number"] {
+                            width: 100%;
+                            padding: 5px;
+                            border: 1px solid #ddd;
+                            border-radius: 3px;
+                        }
+
+                        input[type="text"]:read-only {
+                            background-color: #f0f0f0;
+                        }
+
+                        input[type="password"]:disabled {
+                            background-color: #f0f0f0;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
+
+  
