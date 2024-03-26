@@ -6,12 +6,6 @@ import { ErrorToast, SuccessToast, ToasterContainer } from '../../components/Toa
 
 
 
-
-
-
-
-
-
 const CreateSchedule = () => {
 
     const [in_time,setInTime]=useState('');

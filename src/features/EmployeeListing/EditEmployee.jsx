@@ -45,7 +45,7 @@ const EditEmployee = ({employee}) => {
     const handleEditPosition=async(e)=>{
       e.preventDefault()
       try {
-            const response=await editEmployeePosition({position_id:selectedPosition,user_id:employee.user_id})
+            const response=await editEmployeePosition({position_id:selectedPosition,user_id:employee.user_id}).unwrap()
             console.log(response)
             SuccessToast(response.message)
 

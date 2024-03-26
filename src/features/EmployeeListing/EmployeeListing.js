@@ -28,7 +28,7 @@ export const employeeListingApi=createApi({
                  method:`PUT`,
                  body:employee
             }),
-            // invalidatesTags:[`Employees`]
+            invalidatesTags:[`Employees`]
         }),
         editEmployeePosition:builder.mutation({
             query:(employee)=>({
@@ -37,7 +37,7 @@ export const employeeListingApi=createApi({
                 body:employee
             
             }),
-            // invalidatesTags:[`Employees`]
+            invalidatesTags:[`Employees`]
 
         })
     })
