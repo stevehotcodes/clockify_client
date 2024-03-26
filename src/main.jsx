@@ -14,7 +14,7 @@ import { store } from './app/store.js'
 import useLocalStorage from './hooks/useLocalStorage.js'
 import ContentEmployee from './layout/ContentEmployee/ContentEmployee.jsx'
 import MainLayout from './layout/MainLayout/MainLayout.jsx'
-import { PDFViewer } from '@react-pdf/renderer';
+// import { PDFViewer } from '@react-pdf/renderer';
 
 
 

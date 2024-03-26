@@ -2,6 +2,8 @@ import React from 'react'
 import '../Payroll-Employee/PayrollEmployee.scss'
 import useLocalStorage from '../../hooks/useLocalStorage'
 import { useGetPayRollRecordsforAUserQuery } from '../../features/Payroll/payrollApi'
+import { PDFViewer } from '@react-pdf/renderer'
+import EmployeePayrollPdf from '../../components/EmployeePayrollPdf/EmployeePayrollPdf'
 
 
 const PayrollEmployee = () => {
@@ -116,7 +118,12 @@ const datefullYear=new Date()
         <td></td>
 </tr>
 </table>
+<PDFViewer style={{ width: '100%', height: '100vh' }}>
+      <EmployeePayrollPdf userDetails={userDetails} payrollEmployeeData={payrollEmployeeData} datefullYear={datefullYear}/>
+    </PDFViewer>
+
     </div>
+    
   )
 }
 
