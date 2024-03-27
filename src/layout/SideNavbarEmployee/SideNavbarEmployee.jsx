@@ -25,26 +25,17 @@ const SideNavbarEmployee = () => {
             path:'/attendance-employee',
             linkContent:'Attendance'
         },
-        // {
-        //     icon: <FaBusinessTime/>,
-        //     path:'/checkinout',
-        //     linkContent:'Time in /Time Out'
-        // },
+   
         {
             icon: <MdOutlinePayments/>,
             path:'/payroll-employee',
             linkContent:'Payroll'
         },
-        {
-            icon: <CiLogout/>,
-            path:'/',
-            linkContent:'Log out'
-            
-        }
+      
 
     ]
   return (
-    // <div>SideNavbarEmployee</div>
+    
     <div className='sidenavbar-container'>
         <div>
             {sideNavbarEmployeeLinks && sideNavbarEmployeeLinks.map((item, index) => (

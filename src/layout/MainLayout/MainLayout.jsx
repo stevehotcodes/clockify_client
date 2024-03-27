@@ -16,10 +16,10 @@ const MainLayout = () => {
 
   return (
     <>
-    {(token && userDetails?.role === 'user') ? <EmployeeHome/> : <AdminHome/>}
-    {(token==null) ? <div>Not Authorized</div> :
+    {((token && userDetails?.role === 'user') ? <EmployeeHome/> : <AdminHome/>)}
+    {(!token) ? <div>Not Authorized</div> :
         (userDetails && userDetails.role === 'user') ? 
-            null : // If user is authorized and not a user, render nothing
+            null : 
             (!userDetails) ? 
                 <div className="status-loader">
                     <div className='status-loader-content'>

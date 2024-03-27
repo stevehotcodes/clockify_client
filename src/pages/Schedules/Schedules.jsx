@@ -6,6 +6,7 @@ import CreateSchedule from '../../features/Schedule/CreateSchedule';
 import { useState } from 'react';
 import { useGetAllSchedulesQuery, useGetEmployeesByScheduleQuery } from '../../features/Schedule/scheduleApi';
 import {PuffLoader} from 'react-spinners'
+import { formatDate } from '../Attendance/Attendance';
 
 
 const Schedules = () => {
@@ -13,6 +14,7 @@ const Schedules = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [isScheduleModalOpen, setScheduleModalOpen]=useState(false)
     const [selectedSchedule, setSelectedSchedule]=useState('')
+    const[Loading,setLoading]=useState(false)
     
     const {data:schedule, isError, isLoading, isFetching}=useGetAllSchedulesQuery()
     const {data:employeesBySchedules ,isLoading:employeeLoading, isFetching:employeeFetching}=useGetEmployeesByScheduleQuery(selectedSchedule)
@@ -31,8 +33,12 @@ const Schedules = () => {
 
 
     const handleViewEmployeesInThisShift=(selection)=>{
+        setLoading(true)
         setSelectedSchedule(selection);
+        setTimeout(()=>{
+            setLoading(false)
         
+        },4000)
         
     }
 
@@ -79,9 +85,9 @@ const Schedules = () => {
                 <tbody>
                     {schedule&&schedule.map((item, index)=>(
                           <tr key={index}> 
-                          <td>{item?`${formatDate(item.in_time)}h` :'-'}-{item?`${formatDate(item.out_time)}h`:'-'}</td>
+                          <td>{item?`${formatDate2(item.in_time).formattedStandardHours}h` :'-'}-{item?`${formatDate2(item.out_time).formattedStandardHours}h`:'-'}</td>
                           <td>{item.schedule_description}</td>
-                          <td><button>Edit</button><button  onClick={()=>handleViewEmployeesInThisShift(item)}> View Employees in this Shift</button></td>
+                          <td><button  onClick={()=>handleViewEmployeesInThisShift(item)}> View Employees in this Shift</button></td>
                           
                       </tr>
 
@@ -96,28 +102,31 @@ const Schedules = () => {
             </table>}
             <th>Employees in {selectedSchedule.schedule_description}</th>
             <table>
-                {/* <h5>Employees in {selectedSchedule.schedule_description}</h5> */}
+               
                 <thead>
                     <tr>
-                        <th>Schedules</th>
-                        <th>Title</th>
-                        <th>Actions</th>
+                        <th>Employee Name</th>
+                        <th>Schedule Time Bound</th>
+                        <th>Last Check In</th>
+                        <th>Last Check Out</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                {(employeeFetching)? (<div className="status-loader">
-            <div className='status-loader-content'>
+                {(Loading)? (
+            <div className=''>
                <PuffLoader loading={true} size={150} />
                 <p>Please wait .........</p>
              </div>
-           </div>):
+           ):
                 (!employeeFetching&&employeesBySchedules)?employeesBySchedules.map((item, index)=>(
                           <tr key={index}> 
-                          <td>{item.firstname}</td>
-                          <td>{item.schedule_id}</td>
-                          <td><button>Edit</button><button  onClick={()=>handleViewEmployeesInThisShift(item)}> View Employees in this Shift</button></td>
-                          
+                          <td>{item.firstname} {item.lastname}</td>
+                          <td>{item.schedule_in_time?`${formatDate2(item.schedule_in_time).formattedStandardHours} ${formatDate2(item.schedule_out_time).formattedStandardMinutes}h`:null}-{item.schedule_out_time?`${formatDate2(item.schedule_out_time).formattedStandardHours} ${formatDate2(item.schedule_out_time).formattedStandardMinutes}h`:''}</td>
+                          <td>{item.last_clock_in_time?`${formatDate2(item.last_clock_in_time).formattedStandardHours} ${formatDate2(item.last_clock_in_time).formattedStandardMinutes}h`:'-'}</td>
+                          <td>{item.last_clock_out_time?`${formatDate2(item.last_clock_out_time).formattedStandardHours} ${formatDate2(item.last_clock_out_time).formattedStandardMinutes}h`:'-'}</td>
+                          <td>{item.last_clock_in_time?`${formatDate(item.last_clock_in_time)}`:'-'}</td>
                       </tr>
 
                     )):<h3>No records</h3>}
@@ -135,10 +144,23 @@ const Schedules = () => {
 
 
 
-export const formatDate = (time) => {
+// export  const formatDate = (time) => {
+//     const formattedTime = new Date(time)
+//     const formattedStandardHours=formattedTime.getUTCHours()
+    
+//     return formattedStandardHours ;
+// };
+
+export  const formatDate2 = (time) => {
     const formattedTime = new Date(time)
     const formattedStandardHours=formattedTime.getUTCHours()
-    return formattedStandardHours;
+    const formattedStandardMinutes=formattedTime.getUTCMinutes()
+    return {formattedStandardHours ,formattedStandardMinutes};
 };
+
+
+
+
+
 
 export default Schedules

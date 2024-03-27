@@ -101,12 +101,43 @@ const Profile = () => {
 
     <div className='content-wrapper'>
         <div className='profile-section-one'>
-            {
+            {/* {
                 image ?<img src={URL.createObjectURL(image)} alt="no profile image" className="profile-img" />:<img src={noDp} alt="no profile image" className="profile-img" />
-            }
+            } */}
             {/* <img src="" alt="no profile image" className="profile-img" /> */}
+            <input type="file" onChange={(e)=>setImage(e.target.files[0])} />
              <button className='upload-image-btn' onClick={handleImageUpload}>Change photo</button>
-             <input type="file" onChange={(e)=>setImage(e.target.files[0])} />
+             
+
+
+             <div>
+      <h2>Photo Upload</h2>
+      {/* Input for file selection */}
+      <input type="file" onChange={(e)=>setImage(e.target.files[0])}/>
+      {/* Button to trigger upload */}
+      {/* <button onClick={handleUpload} disabled={!selectedFile}>Upload</button> */}
+      {/* Display selected file */}
+      {image && (
+        <div>
+          <p>Selected File: {image}</p>
+          <img src={URL.createObjectURL(image)} alt="Selected" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+        </div>
+      )}
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
         </div>
 
         <div className='profile-section-two'>
