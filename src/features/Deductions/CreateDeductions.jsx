@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ErrorToast, LoadingToast, SuccessToast, ToasterContainer } from '../../components/Toaster/Toaster'
 import { useCreateNewDeductionMutation } from './deductionsApi'
 import { useNavigate } from 'react-router-dom'
+import { useGetAllEmployeesQuery } from '../EmployeeListing/EmployeeListing'
 
 
 const CreateDeductions = () => {
@@ -11,9 +12,15 @@ const CreateDeductions = () => {
     const[description,setDescription]=useState('')
     const[amount,setAmount]=useState('');
     const[user_id, setUserID]=useState('');
+    const[selectedEmployee,setEmployeeValueChange]=useState('')
+    const{data:employees}=useGetAllEmployeesQuery()
     const[createNewDeduction]=useCreateNewDeductionMutation();
+   
 
     const navigate=useNavigate()
+    const handleEmployeeValueChange=(e)=>{
+      setEmployeeValueChange(e.target.value)
+   }
 
     const handleCreateDeduction=async(e)=>{
         e.preventDefault()
@@ -26,11 +33,11 @@ const CreateDeductions = () => {
         
 
         try {
-         LoadingToast(true)
-               if (descriptionValue==''|| amountValue==''|| userIdValue=='')
+         // LoadingToast(true)
+               if (descriptionValue==''|| amountValue=='')
                       ErrorToast("input fields cannot be empty. Please input the required data")
                 else{
-                  const response=await createNewDeduction({description:descriptionValue,amount:amountValue,user_id:userIdValue}).unwrap()
+                  const response=await createNewDeduction({description:descriptionValue,amount:amountValue,user_id:selectedEmployee}).unwrap()
                   SuccessToast(response.message)
                   LoadingToast(false)
 
@@ -78,10 +85,14 @@ const CreateDeductions = () => {
    </div>
 
    <div className="textarea">
-      <input type="text" placeholder='employee id' id='user_id'
-            onChange={(e)=>{setUserID(e.target.value)}}
-         
-         />
+  
+
+<select  onChange={handleEmployeeValueChange} value={selectedEmployee}>
+                                        <option value="">Select employee</option>
+                                        {employees&&employees.map((employee,index)=>(
+                                             <option key={employee.user_id} value={employee.user_id}>{employee.firstname} {employee.lastname}</option>
+                                        ))}
+                                    </select>
    </div>
        
         <div className="footer">

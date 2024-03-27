@@ -3,6 +3,7 @@ import { useCreateCashAdvanceMutation } from './cashAdvancesApi'
 import { useState } from 'react';
 import { ErrorToast, LoadingToast, SuccessToast, ToasterContainer } from '../../components/Toaster/Toaster'
 import { useNavigate } from 'react-router-dom';
+import { useGetAllEmployeesQuery } from '../EmployeeListing/EmployeeListing';
 
 
 
@@ -18,6 +19,13 @@ const [createCashAdvance]=useCreateCashAdvanceMutation();
  const [user_id, setUserID]=useState('')
  const navigate=useNavigate();
  const[loading, setLoading]=useState('')
+ const [selectedEmployee, setemployeeValue]=useState('')
+ 
+ const{data:employees}=useGetAllEmployeesQuery()
+
+const handleEmployeeValueChange=(e)=>{
+   setemployeeValue(e.target.value)
+}
 
 
 const handleCreateCashAdvance=async(e)=>{
@@ -41,7 +49,7 @@ const handleCreateCashAdvance=async(e)=>{
         }
         else{
             LoadingToast(true)
-            const response=await createCashAdvance({amount:amountValue,user_id:userIDValue}).unwrap()
+            const response=await createCashAdvance({amount:amountValue,user_id:selectedEmployee}).unwrap()
    
            SuccessToast(response.message)
            e.target.reset()
@@ -95,10 +103,13 @@ const handleCreateCashAdvance=async(e)=>{
    </div>
 
    <div className="textarea">
-      <input type="text" placeholder='employee id' id='user_id'
-            onChange={(e)=>{setUserID(e.target.value)}}
-         
-         />
+     
+           <select  onChange={handleEmployeeValueChange} value={selectedEmployee}>
+                                        <option value="">Select employee</option>
+                                        {employees&&employees.map((employee,index)=>(
+                                             <option key={employee.user_id} value={employee.user_id}>{employee.firstname} {employee.lastname}</option>
+                                        ))}
+                                    </select>
    </div>
        
         <div className="footer">
