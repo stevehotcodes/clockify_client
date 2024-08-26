@@ -90,10 +90,7 @@ const Profile = () => {
 
       <div className="content-wrapper">
         <div className="profile-section-one">
-          {/* {
-                image ?<img src={URL.createObjectURL(image)} alt="no profile image" className="profile-img" />:<img src={noDp} alt="no profile image" className="profile-img" />
-            } */}
-          {/* <img src="" alt="no profile image" className="profile-img" /> */}
+
           <input type="file" onChange={(e) => setImage(e.target.files[0])} />
           <button className="upload-image-btn" onClick={handleImageUpload}>
             Change photo
@@ -103,9 +100,7 @@ const Profile = () => {
             <h2>Photo Upload</h2>
             {/* Input for file selection */}
             <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-            {/* Button to trigger upload */}
-            {/* <button onClick={handleUpload} disabled={!selectedFile}>Upload</button> */}
-            {/* Display selected file */}
+
             {image && (
               <div>
                 <p>Selected File: {image}</p>
