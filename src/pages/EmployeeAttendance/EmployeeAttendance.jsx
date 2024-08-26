@@ -47,11 +47,6 @@ const EmployeeAttendance = () => {
 
     console.log(conventionalClockOutTime, currentTime);
     try {
-      // if(currentTime<conventionalClockInTime || currentTime<conventionalClockOutTime || currentTime>conventionalClockOutTime){
-      //      ErrorToast("cannot clock in since this is not your schedule or you have already clocked in ")
-      //      return
-      // }
-
       const response = await CreateCheckIn(loggedInUser).unwrap();
       console.log(response.message);
       LoadingToast(true);
@@ -94,9 +89,7 @@ const EmployeeAttendance = () => {
       <div className="content-wrapper">
         <div className="graphs"></div>
         <div className="search-add-new-btn">
-          <form action="">
-            {/* <input type="search" name="" id="" placeholder='search for an position' /> */}
-          </form>
+
           <div className="button-wrapper">
             <button
               className="add-new-btn"
