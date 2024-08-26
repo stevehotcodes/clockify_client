@@ -327,15 +327,6 @@ const Signup = () => {
               </select>
             </div>
 
-            {/* <div class="label-input-group">
-                                    <label> Proposed Gross Salary </label><br/>
-                                    <input type="number" name="" id="" placeholder="Ksh 30000"  min='1'
-                                    //  {...register("gross_salary")}
-                                     disabled
-
-                                    />  
-                                    {/* <p className="error-message">{errors.gross_salary?.message}</p>                 
-                                </div> */}
           </div>
 
           <div className="label-input-wrapper">
