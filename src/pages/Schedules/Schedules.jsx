@@ -177,12 +177,6 @@ const Schedules = () => {
   );
 };
 
-// export  const formatDate = (time) => {
-//     const formattedTime = new Date(time)
-//     const formattedStandardHours=formattedTime.getUTCHours()
-
-//     return formattedStandardHours ;
-// };
 
 export const formatDate2 = (time) => {
   const formattedTime = new Date(time);
