@@ -23,7 +23,7 @@ const Login = () => {
   const [userDetails, setUserDetails] = useLocalStorage("user", null);
   const [token, setToken] = useLocalStorage("token ", null);
   const [isAdmin, setAdmin] = useState("");
-  // console.log("user form the local storage ", userDetails,token )
+
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
@@ -50,10 +50,9 @@ const Login = () => {
       LoadingToast(false);
       setUserDetails(response.user);
       setToken(response.token);
-      // navigate('/admin')
+
       console.log("user details", userDetails.role, token);
 
-      // console.log(isAdmin)
       console.log("checking the user", userDetails.role == "user");
 
       if (token) {
@@ -70,13 +69,6 @@ const Login = () => {
           }, 3000);
         }
 
-        // else{
-        //     ErrorToast(`Login unscuccessful`)
-        //     setTimeout(()=>{
-        //         navigate('/')
-        //     },3000)
-
-        // }
       } else {
         ErrorToast("Invalid Credentials user does not exist");
         navigate("/");
@@ -132,12 +124,10 @@ const Login = () => {
               <p className="error-message">{errors.password?.message}</p>
             </div>
 
-            {/* <NavLink  to='/admin' className="label-input-group"  > */}
             <div className="label-input-group">
               <input type="submit" class="sign-up-btn" value="Login" />
             </div>
 
-            {/* </NavLink> */}
           </form>
         </div>
       </div>
