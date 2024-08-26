@@ -35,7 +35,7 @@ const EmployeeListing = () => {
   const openEditEmployeeModal = (item) => {
     setEditEmployeeModalOpen(true);
     setSelectedPersonToBeEdited(item);
-    // console.log(selectedPersonToBeEdited)
+    
   };
 
   const closeEditEmployeeModal = () => {
