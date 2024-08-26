@@ -17,8 +17,6 @@ function App() {
   const [count, setCount] = useState(0);
   const [userDetails, setUserDetails] = useLocalStorage("user", null);
   console.log("app rendering the user deatils", userDetails);
-  // const role=userDetails.role
-  // console.log(role)
 
   return (
     <>
@@ -31,9 +29,6 @@ function App() {
             userDetails.role === "user" ? <EmployeeHome /> : <AdminHome />
           }
         />
-
-        {/* <Route path="/admin" element={(userDetails.role==='admin')? <AdminHome/>:<Login/>}/>
-         <Route path='/employee' element={(userDetails.role==='user')?<EmployeeHome/>:<Login/>}/> */}
       </Routes>
     </>
   );
