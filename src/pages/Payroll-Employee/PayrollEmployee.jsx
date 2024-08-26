@@ -26,7 +26,6 @@ const PayrollEmployee = () => {
 
   const datefullYear = new Date();
 
-  // console.log(formattedDOB)
 
   return (
     <div class="payroll-container">
