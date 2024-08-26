@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import '../Modal/Modal.scss';
-import { createPortal } from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import "../Modal/Modal.scss";
+import { createPortal } from "react-dom";
 
 const Modal = ({ children, onClose }) => {
   return ReactDOM.createPortal(
@@ -10,7 +10,7 @@ const Modal = ({ children, onClose }) => {
         {children}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 };
 

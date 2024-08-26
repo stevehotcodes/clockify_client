@@ -1,5 +1,5 @@
-import React from 'react'
-import '../SideNavbarAdmin/SideNavbarAdmin.scss'
+import React from "react";
+import "../SideNavbarAdmin/SideNavbarAdmin.scss";
 import { FaHome } from "react-icons/fa";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaBusinessTime } from "react-icons/fa";
@@ -10,83 +10,72 @@ import { LiaCashRegisterSolid } from "react-icons/lia";
 import { PiTimerFill } from "react-icons/pi";
 import { MdOutlinePayments } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
-import { NavLink } from 'react-router-dom';
-import useLocalStorage from '../../hooks/useLocalStorage';
-
+import { NavLink } from "react-router-dom";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const SideNavbarAdmin = () => {
+  const [token, setToken] = useLocalStorage("token ", null);
 
-    const [token, setToken] = useLocalStorage('token ', null);
-
-
-    const sideNavAdminLinks=[
-        {
-            icon:<FaHome/>,
-            path:'/admin',
-            linkContent:"Home"
-        },
-        {
-            icon: <FaPeopleGroup/>,
-            path:'/employeelisting',
-            linkContent:'Employees'
-        },
-        {
-            icon: <FaBusinessTime/>,
-            path:'/attendance',
-            linkContent:'Attendance'
-        },
-        {
-            icon: <FaPeopleGroup/>,
-            path:'/positions',
-            linkContent:"Positions"
-        },
-        {
-            icon: <GrSchedules/> ,
-            path:'/schedules',
-            linkContent:'Schedules'
-        },
-        {
-            icon: <TbCashOff/> ,
-            path:'/deductions',
-            linkContent:'Deductions'
-        },
-        {
-            icon: <LiaCashRegisterSolid/> ,
-            path:'/advances',
-            linkContent:'Cash Advances'
-        },
-        {
-            icon:<LiaCashRegisterSolid/> ,
-            path:'/overtime',
-            linkContent:'Overtime'
-        },
-        {
-            icon: <MdOutlinePayments/>,
-            path:'/payroll',
-            linkContent:'Payroll'
-        }
-        
-        
-
-    ]
+  const sideNavAdminLinks = [
+    {
+      icon: <FaHome />,
+      path: "/admin",
+      linkContent: "Home",
+    },
+    {
+      icon: <FaPeopleGroup />,
+      path: "/employeelisting",
+      linkContent: "Employees",
+    },
+    {
+      icon: <FaBusinessTime />,
+      path: "/attendance",
+      linkContent: "Attendance",
+    },
+    {
+      icon: <FaPeopleGroup />,
+      path: "/positions",
+      linkContent: "Positions",
+    },
+    {
+      icon: <GrSchedules />,
+      path: "/schedules",
+      linkContent: "Schedules",
+    },
+    {
+      icon: <TbCashOff />,
+      path: "/deductions",
+      linkContent: "Deductions",
+    },
+    {
+      icon: <LiaCashRegisterSolid />,
+      path: "/advances",
+      linkContent: "Cash Advances",
+    },
+    {
+      icon: <LiaCashRegisterSolid />,
+      path: "/overtime",
+      linkContent: "Overtime",
+    },
+    {
+      icon: <MdOutlinePayments />,
+      path: "/payroll",
+      linkContent: "Payroll",
+    },
+  ];
   return (
-    <div className='sidenavbar-container'>
-       <div>
-  {sideNavAdminLinks && sideNavAdminLinks.map((item, index) => (
-    <NavLink className='nav-icon-wrapper' key={index} to={item.path}> 
-      {item.icon}
-      <span>{item.linkContent}</span>
-    </NavLink>
-  ))}
-
-  </div>
-
-         
-      
-
-
+    <div className="sidenavbar-container">
+      <div>
+        {sideNavAdminLinks &&
+          sideNavAdminLinks.map((item, index) => (
+            <NavLink className="nav-icon-wrapper" key={index} to={item.path}>
+              {item.icon}
+              <span>{item.linkContent}</span>
+            </NavLink>
+          ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SideNavbarAdmin
+export default SideNavbarAdmin;

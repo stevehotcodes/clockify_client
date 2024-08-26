@@ -37,7 +37,7 @@ const CreateDeductions = () => {
       // LoadingToast(true)
       if (descriptionValue == "" || amountValue == "")
         ErrorToast(
-          "input fields cannot be empty. Please input the required data"
+          "input fields cannot be empty. Please input the required data",
         );
       else {
         const response = await createNewDeduction({
