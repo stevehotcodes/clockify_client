@@ -450,25 +450,7 @@ const Signup = () => {
           </div>
 
           <div className="label-input-wrapper">
-            {/* <div class="label-input-group">
-                        <label>Password</label><br/>
-                        <input type="password" name="" id="" placeholder="password"
-                        //  {...register("password")}  password is generated automatically in the server
-                        disabled
-                        
-                        />  
-                
-                    </div> */}
-            {/* <div class="label-input-group">
-                        <label> Confirm Password </label><br/>
-                        <input type="password" name="" id="" placeholder=" confirm password" 
-                        // {...register("confirm_password")}
-                        disabled
-                         
-                        /> 
-                       
 
-                    </div> */}
           </div>
 
           <div className="label-input-group">
@@ -478,7 +460,7 @@ const Signup = () => {
           </div>
           <div className="form-footer">
             <a href="/"> Already an Employee? Log in</a>
-            {/* <a href="/reset">Forgot Password?</a> */}
+
           </div>
         </form>
       </div>
