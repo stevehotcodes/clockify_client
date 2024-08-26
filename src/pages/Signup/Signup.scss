@@ -15,7 +15,6 @@
     .signup-container{
         background-color: white;
         width:90%;
-        // height:140vh;
         min-height:140vh;
         overflow-y: scroll;
         display: flex;
@@ -39,7 +38,6 @@
 
             .label-input-wrapper{
                 width:100%;
-                // border:2px solid red;
                 display: flex;
                 justify-content: center;
 
@@ -102,12 +100,7 @@
                     border: 2px solid#4C94B5;
                   }
                  
-
-                 
               }
-
-
-
            
             .form-footer{
                 display: flex;
@@ -115,7 +108,6 @@
 
                
               }
-
            
         }
         
