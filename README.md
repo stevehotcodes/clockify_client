@@ -112,3 +112,47 @@ o Payroll: Payroll records (Employee ID, Gross Pay, Deductions, Net Pay, Payroll
 ![Login Page](<src/assets/Screenshot 2024-03-19 170823.png>)
 ## Sign up Page 
 ![Register page](<src/assets/Screenshot 2024-03-19 171204.png>)
+
+# To set up the project
+
+## # My React Project
+
+## Overview
+
+This repository contains a React project set up using [Vite](https://vitejs.dev/). Follow the instructions below to get started with the project locally.
+
+## Prerequisites
+
+Ensure you have the following installed:
+
+- **[Node.js](https://nodejs.org/)** (includes npm or Yarn)
+- **npm** (comes with Node.js) or **Yarn** (alternative package manager)
+
+## Getting Started
+
+### Clone the Repository
+
+Clone this repository to your local machine:
+
+- git clone https://github.com/stevehotcodes/clockify_client.git
+
+## Navigate to the Project Directory
+`cd your-repository-name`
+
+## Install Dependencies
+`npm install` or `pnpm install`
+
+# Start the Development Server
+
+- Depending on the setup, start the development server using one of the following commands:
+-For Vite :
+ `npm run dev`
+
+
+
+
+
+
+
+
+
