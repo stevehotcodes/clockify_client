@@ -126,7 +126,7 @@ This repository contains a React project set up using [Vite](https://vitejs.dev/
 Ensure you have the following installed:
 
 - **[Node.js](https://nodejs.org/)** (includes npm or Yarn)
-- **npm** (comes with Node.js) or **Yarn** (alternative package manager)
+- **pnpm** (comes with Node.js) or **Yarn** (alternative package manager)
 
 ## Getting Started
 
@@ -140,18 +140,37 @@ Clone this repository to your local machine:
 `cd your-repository-name`
 
 ## Install Dependencies
-`npm install` or `pnpm install`
+`pnpm install` or `pnpm install`
 
 # Start the Development Server
 
 - Depending on the setup, start the development server using one of the following commands:
 -For Vite :
- `npm run dev`
+ `pnpm run dev`
 
 
+# Project Structure
+
+- public/: Contains static files like index.html.
+- src/: Contains React components and JavaScript files.
+- package.json: Manages project dependencies and scripts.
 
 
+# Additional Setup
+- Version Control: Initialize a git repository if not already initialized.
+`git init`
 
+- Code Editor: : Use an IDE or code editor like Visual Studio Code for better development experience.
+- Add Additional Libraries: Install any extra libraries required for your project. For example:
+    - React Router: For routing: `pnpm install react-router-dom` or `yarn add react-router-dom`
+    - State Management: Libraries like Redux: `pnpm install redux react-redux` or yarn add redux react-redux
+    - Styling: Libraries like SASS :`pnpm run sass`
+
+Resources
+![React Documentation](https://react.dev/)
+![Vite Documentation](https://vitejs.dev/)
+# Contributing
+- We welcome contributions to this project! Please submit issues or pull requests with your suggestions or improvements.
 
 
 
