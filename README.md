@@ -115,7 +115,7 @@ o Payroll: Payroll records (Employee ID, Gross Pay, Deductions, Net Pay, Payroll
 
 # To set up the project
 
-## # My React Project
+## Clockify Client
 
 ## Overview
 
@@ -167,8 +167,8 @@ Clone this repository to your local machine:
     - Styling: Libraries like SASS :`pnpm run sass`
 
 Resources
-![React Documentation](https://react.dev/)
-![Vite Documentation](https://vitejs.dev/)
+**[React Documentation](https://react.dev/)**
+**[Vite Documentation](https://vitejs.dev/)**
 # Contributing
 - We welcome contributions to this project! Please submit issues or pull requests with your suggestions or improvements.
 
